@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+@model CreateProductVM
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Product</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" class="form-control">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CostPrice">CostPrice</label>
+                    <input asp-for="CostPrice" class="form-control">
+                    <span asp-validation-for="CostPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SellPrice">SellPrice</label>
+                    <input asp-for="SellPrice" class="form-control">
+                    <span asp-validation-for="SellPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" class="form-control">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SKU">SKU</label>
+                    <input asp-for="SKU" class="form-control">
+                    <span asp-validation-for="SKU" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Discount">Discount</label>
+                    <input asp-for="Discount" class="form-control">
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CoverImage">CoverImage</label>
+                    <input accept="image/*" asp-for="CoverImage" class="form-control">
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HoverImage">HoverImage</label>
+                    <input accept="image/*" asp-for="HoverImage" class="form-control">
+                    <span asp-validation-for="HoverImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OtherImages">OtherImage</label>
+                    <input accept="image/*" asp-for="OtherImages" class="form-control">
+                    <span asp-validation-for="OtherImages" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CategoryIds">Categories</label>
+                    <select asp-for="CategoryIds" class="form-control" asp-items="@ViewBag.Categories"></select>
+                    <span asp-validation-for="CategoryIds" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ColorIds">Colors</label>
+                    <select asp-for="ColorIds" class="form-control"  asp-items="@ViewBag.Colors"></select>
+                    <span asp-validation-for="ColorIds" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SizeIds">Sizes</label>
+                    <select asp-for="SizeIds" class="form-control" asp-items="@ViewBag.Sizes"></select>
+                    <span asp-validation-for="SizeIds" class="text-danger"></span>
+                </div>
+                <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light" asp-area="Admin" asp-controller="Product" asp-action="Index">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

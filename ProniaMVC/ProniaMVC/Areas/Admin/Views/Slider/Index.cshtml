@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@model IEnumerable<Slider>
+<div class="container">
+    <div class="card mt-6">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>DiscountPercent</th>
+                        <th>Imgurl</th>
+                        <th>Order</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Slider slider in Model)
+                    {
+                        <tr>
+                            <td>@slider.Name</td>
+                            <td>@slider.DiscountPercent</td>
+                            <td>@slider.ImgUrl</td>
+                            <td>@slider.Order</td>
+                            <td><a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Slider" asp-action="Update" asp-route-id="@slider.Id">Edit</a> </td>
+                            <td><a type="button" class="btn btn-danger" asp-area="Admin" asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id">Delete</a> </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

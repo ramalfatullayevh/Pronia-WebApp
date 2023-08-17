@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Setting>
+<div class="container">
+    <div class="card mt-6">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                        <th>Edit</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Setting setting in Model)
+                    {
+                        <tr>
+                            <td>@setting.Key</td>
+                            <td>@setting.Value</td>
+                            <td><a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Setting" asp-action="Update" asp-route-id="@setting.Id">Edit</a> </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

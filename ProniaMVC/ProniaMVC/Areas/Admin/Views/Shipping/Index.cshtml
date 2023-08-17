@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<ShippingArea>
+<div class="container">
+    <div class="card mt-6">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Iconurl</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (ShippingArea shippingArea in Model)
+                    {
+                        <tr>
+                            <td>@shippingArea.Name</td>
+                            <td>@shippingArea.Description</td>
+                            <td>@shippingArea.IconUrl</td>
+                            <td><a type="button" class="btn btn-success" asp-area="admin" asp-controller="Shipping" asp-action="Update" asp-route-id="@shippingArea.Id">Edit</a> </td>
+                            <td><a type="button" class="btn btn-danger" asp-area="admin" asp-controller="Shipping" asp-action="Delete" asp-route-id="@shippingArea.Id">Delete</a> </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

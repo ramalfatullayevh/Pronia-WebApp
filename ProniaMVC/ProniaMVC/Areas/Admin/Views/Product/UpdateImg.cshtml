@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateImg";
+}
+
+@model UpdateProductImageVM
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Product Image</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                    <label asp-for="CoverImage">CoverImage</label>
+                    <input accept="image/*" asp-for="CoverImage" class="form-control">
+                    <span asp-validation-for="CoverImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="HoverImage">HoverImage</label>
+                    <input accept="image/*" asp-for="HoverImage" class="form-control">
+                    <span asp-validation-for="HoverImage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="OtherImages">OtherImage</label>
+                    <input accept="image/*" asp-for="OtherImages" class="form-control">
+                    <span asp-validation-for="OtherImages" class="text-danger"></span>
+                </div>
+                <div class="form-check form-check-flat form-check-primary">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input">
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                <button class="btn btn-light" asp-area="Admin" asp-controller="Product" asp-action="Index">Product Page</button>
+                <button class="btn btn-light" asp-area="Admin" asp-controller="UpdateProduct" asp-action="Index">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

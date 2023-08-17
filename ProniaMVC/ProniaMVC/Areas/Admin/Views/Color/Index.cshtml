@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<Color>
+<div class="container">
+    <div class="card mt-6">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Color color in Model)
+                    {
+                        <tr>
+                            <td>@color.Name</td>
+                            <td><a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Color" asp-action="Update" asp-route-id="@color.Id">Edit</a> </td>
+                            <td><a type="button" class="btn btn-danger" asp-area="Admin" asp-controller="Color" asp-action="Delete" asp-route-id="@color.Id">Delete</a> </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

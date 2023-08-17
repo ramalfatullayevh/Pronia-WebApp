@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model IEnumerable<Product>
+<div class="container">
+    <div class="card mt-6">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Cover Image</th>
+                        <th>Description</th>
+                        <th>SKU</th>
+                        <th>CostPrice</th>
+                        <th>SellPrice</th>
+                        <th>Discount</th>
+                        <th>Status</th>
+                        <th>Product Categories</th>
+                        <th>Product Colors</th>
+                        <th>Product Sizes</th>
+                        <th>Edit Button</th>
+                        <th>Delete Button</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Product product in Model)
+                    {
+                            <tr>
+                                <td>@product.Name</td>
+                            <td><img width="90" src="~/assets/images/product/@product?.ProductImages.FirstOrDefault(p=>p.IsCover == true )?.ImageUrl" /></td>
+                                <td>@product.Description</td>
+                                <td>@product.SKU</td>
+                                <td>@product.CostPrice AZN</td>
+                                <td>@product.SellPrice AZN</td>
+                                <td>@product.Discount %</td>
+                                <td>@product.IsDeleted</td>
+                                 <td>
+                                    @foreach (var category in product?.ProductCategories.Where(pc=>pc.ProductId == product.Id))
+                                {
+                                    <span>@category.Category.Name</span>
+                                }
+                                </td>
+
+                                <td>
+                                    @foreach (var color in product?.ProductColors.Where(pc=>pc.ProductId == product.Id))
+                                {
+                                    <span>@color.Color.Name</span>
+                                }
+                                </td>
+                                <td>
+                                   @foreach (var size in product?.ProductSizes.Where(pc => pc.ProductId == product.Id))
+                                     {
+                                       <span>@size.Size.Name</span>
+                                    }
+                                 </td>
+                            <td><a type="button" class="btn btn-success" asp-area="Admin" asp-controller="Product" asp-action="UpdateProduct" asp-route-id="@product.Id">Edit</a> </td>
+                            <td><a type="button" class="btn btn-danger" asp-area="Admin" asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id">Delete</a> </td>
+                            </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+
+
